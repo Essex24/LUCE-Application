@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-function SearchScreen({ navigation }) {
+function RandomScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <Text>Random</Text>
     </View>
   );
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchScreen;
+export default RandomScreen;

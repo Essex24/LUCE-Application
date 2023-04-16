@@ -113,6 +113,16 @@ function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}>Youth Development and 4-H Program</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.buttonStyle}>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('Digital Resources')}
+        style={[
+          styles.button,
+          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
+        ]}>
+          <Text style={styles.buttonText}>AEA</Text>
+        </TouchableOpacity>
+      </View>
 
     </ScrollView>
   );
@@ -127,7 +137,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
   },
   button: {
     paddingVertical: 10,

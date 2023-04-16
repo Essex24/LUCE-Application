@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-function SearchScreen({ navigation }) {
+function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <Text>Login</Text>
     </View>
   );
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchScreen;
+export default LoginScreen;
