@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import SearchBar from '../components/SearchBar';
 
 function SearchScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <SearchBar />
     </View>
   );
 }
@@ -12,8 +13,6 @@ function SearchScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

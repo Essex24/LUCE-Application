@@ -41,31 +41,71 @@ function TabStack() {
            headerTitleAlign: "center",
         }}>
         <Tab.Screen name="About Us" component={AboutUsScreen} 
-        options={{
+        options={({ navigation }) => ({
+          headerRight: () => (
+            <Icon
+              onPress={() => navigation.navigate('Register')}
+              name="newspaper"
+              size={25}
+              color={'white'}
+            />
+          ),
           headerTitle: (props) => <LogoTitle {...props} />, 
           tabBarIcon:({tintColor})=>(<Icon name="ios-home" color={'white'} size={25}/>)
-        }}/>
+        })}/>
         <Tab.Screen name="Search" component={SearchScreen} 
-        options={{headerTitle: (props) => <LogoTitle {...props} />, 
-        tabBarIcon:({tintColor})=>(
-          <Icon name="search" color={'white'} size={25}/>)
-        }} />
-        <Tab.Screen name="Show Me How!" component={RandomScreen} options={{
+        options={({ navigation }) => ({
+          headerRight: () => (
+            <Icon
+              onPress={() => navigation.navigate('Register')}
+              name="newspaper"
+              size={25}
+              color={'white'}
+            />
+          ),
           headerTitle: (props) => <LogoTitle {...props} />, 
-          tabBarIconStyle: { 
-            display:"none" 
-          },
-          }}/>
+          tabBarIcon:({tintColor})=>(
+          <Icon name="search" color={'white'} size={25}/>)
+        })} />
+        <Tab.Screen name="Show Me How!" component={RandomScreen} 
+        options={({ navigation }) => ({
+          headerRight: () => (
+            <Icon
+              onPress={() => navigation.navigate('Register')}
+              name="newspaper"
+              size={25}
+              color={'white'}
+            />
+          ),
+          headerTitle: (props) => <LogoTitle {...props} />, 
+          tabBarIcon:({tintColor})=>(<Icon name="download" color={'white'} size={25}/>),
+        })}/>
         <Tab.Screen name="Resources" component={StackScreen} 
-        options={{
+        options={({ navigation }) => ({
+          headerRight: () => (
+            <Icon
+              onPress={() => navigation.navigate('Register')}
+              name="newspaper"
+              size={25}
+              color={'white'}
+            />
+          ),
           headerTitle: (props) => <LogoTitle {...props} />, 
           tabBarIcon:({tintColor})=>(<Icon name="book" color={'white'} size={25}/>),
-        }}/>
+        })}/>
         <Tab.Screen name="Contact Us" component={ContactUsScreen} 
-        options={{
+        options={({ navigation }) => ({
+          headerRight: () => (
+            <Icon
+              onPress={() => navigation.navigate('Register')}
+              name="newspaper"
+              size={25}
+              color={'white'}
+            />
+          ),
           headerTitle: (props) => <LogoTitle {...props} />, 
-          tabBarIcon:({tintColor})=>(<Icon name="newspaper" color={'white'} size={25}/>)
-        }} />
+          tabBarIcon:({tintColor})=>(<Icon name="copy" color={'white'} size={25}/>)
+        })} />
       </Tab.Navigator>
   );
 }
