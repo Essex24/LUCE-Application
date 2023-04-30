@@ -8,7 +8,7 @@ function ResourceScreen({ navigation }) {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
-    fetch('http://loki.lincolnu.edu/~cs451sp23/returnALL.php')
+    fetch('http://loki.lincolnu.edu/~cs451sp23/category_scripts/get_unit_14.php')
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error));
@@ -27,12 +27,12 @@ function ResourceScreen({ navigation }) {
       <View key={index} style={styles.resource}>
         {item.DR_IMAGE ? (
           <TouchableOpacity onPress={() => Linking.openURL(item.DR_URL)}>
-            <Image source={{ uri: item.DR_IMAGE }} style={styles.image} resizeMode='contain' />
+            <Image source={{ uri: item.DR_IMAGE }} style={styles.image}/>
             <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_URL}</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity onPress={() => Linking.openURL(item.DR_URL)}>
-            <Image source={require('../assets/stock.png')} style={styles.image} resizeMode='contain' />
+            <Image source={require('../assets/stock.png')} style={styles.image} />
             <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_URL}</Text>
           </TouchableOpacity>
         )}
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     width: '30%',
     aspectRatio: 1,
     borderRadius: 10,
+    overflow: 'hidden',
   },
 });
 

@@ -12,6 +12,10 @@ const SearchBar = () => {
       onChangeText={onChangeSearch}
       value={searchQuery}
       icon="magnify"
+      style={{
+        borderRadius: 0,
+        backgroundColor: '#EFEFEF',
+      }}
     />
   );
 };

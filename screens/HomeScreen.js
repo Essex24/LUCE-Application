@@ -8,119 +8,96 @@ function HomeScreen({ navigation }) {
       <View style={styles.buttonStyle}>
         <TouchableOpacity
         onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        style={styles.button}>
+          <Text style={styles.buttonText}>Resources</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.buttonStyle}>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('Aquaculture')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Aquaculture</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('AEA')}
+        style={styles.button}>
+          <Text style={styles.buttonText}>Association of Extension Administrators</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.buttonStyle}>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('Composting')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Composting</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('Hemp Institute')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Hemp Institute</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('Horticulture')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Horticulture</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('ISFOP')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Innovative Small Farmers Outreach Program</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('IPMP')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Integrated Pest Management Program</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('PJC')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Paula J. Carter Center on Minority Health and Aging</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('SRP')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Small Ruminant Program</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('WLS')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Wildlife Science</Text>
         </TouchableOpacity>
       </View>
+
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
+        onPress={() => navigation.navigate('Youth 4-H')}
+        style={styles.button}>
           <Text style={styles.buttonText}>Youth Development and 4-H Program</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.buttonStyle}>
-        <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={[
-          styles.button,
-          Platform.OS === 'ios' ? styles.iosButton : styles.androidButton,
-        ]}>
-          <Text style={styles.buttonText}>AEA</Text>
         </TouchableOpacity>
       </View>
 
@@ -132,7 +109,6 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   buttonStyle: {
-
     width: '100%',
   },
   container: {
@@ -145,13 +121,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
-  },
-  iosButton: {
-    backgroundColor: '#0C2340',
-    borderWidth: 1,
-    borderColor: 'white',
-  },
-  androidButton: {
     backgroundColor: '#0C2340',
     borderWidth: 1,
     borderColor: 'white',
