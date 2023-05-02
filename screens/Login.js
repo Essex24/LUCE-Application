@@ -11,14 +11,25 @@ const Register = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
 
+  const clearInputs = () => {
+    setfName('');
+    setlName('');
+    setEmail('');
+    setAddress('');
+    setNumber('');
+    setZip('');
+    setCity('');
+    setState('');
+  };
+
   const registerUser = async () => {
     try {
       const response = await fetch('http://loki.lincolnu.edu/~cs451sp23/register.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({ fname, lname, email, address, number, zip, city, state }),
+        body: `fname=${fname}&lname=${lname}&email=${email}&address=${address}&number=${number}&zip=${zip}&city=${city}&state=${state}`,
       });
       const json = await response.json();
       console.log(json);
@@ -93,7 +104,10 @@ const Register = () => {
       />
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={registerUser}
+        onPress={() => {
+          registerUser();
+          clearInputs();
+        }}
         style={styles.button}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>

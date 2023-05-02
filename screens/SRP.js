@@ -25,15 +25,15 @@ function ResourceScreen({ navigation }) {
   const displayData = () => {
     return data.map((item, index) => (
       <View key={index} style={styles.resource}>
-        {item.DR_IMAGE ? (
+        {item.DR_Img_URL ? (
           <TouchableOpacity onPress={() => Linking.openURL(item.DR_URL)}>
-            <Image source={{ uri: item.DR_IMAGE }} style={styles.image}/>
-            <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_URL}</Text>
+            <Image source={{ uri: item.DR_Img_URL }} style={styles.image}/>
+            <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_Title || item.DR_URL}</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity onPress={() => Linking.openURL(item.DR_URL)}>
             <Image source={require('../assets/stock.png')} style={styles.image} />
-            <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_URL}</Text>
+            <Text style={styles.linkText} onPress={() => Linking.openURL(item.DR_URL)}>{item.DR_Title || item.DR_URL}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -53,7 +53,7 @@ function ResourceScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexGro: 1,
+    flexGrow: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -63,21 +63,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: 10,
+    margin: 20,
     padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
     width: '90%',
   },
   linkText: {
-    color: 'blue',
     fontSize: 16,
     fontWeight: 'bold',
-    textDecorationLine: 'underline',
+    marginTop: 10,
+    textAlign: 'center',
   },
   image: {
-    width: '30%',
+    width: '100%',
     aspectRatio: 1,
     borderRadius: 10,
     overflow: 'hidden',

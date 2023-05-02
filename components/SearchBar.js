@@ -1,32 +1,44 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, Linking, StyleSheet } from 'react-native';
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
-  const onChangeSearch = async (query) => {
-    setSearchQuery(query);
-    const response = await fetch(`http://example.com/search.php?query=${query}`);
+  const fetchSearchResults = async (query) => {
+    const response = await fetch(`http://loki.lincolnu.edu/~cs451sp23/search_testing/test.php?keyword=${query}`);
     const data = await response.json();
     setSearchResults(data);
   };
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => { Linking.openURL(item.link) }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
-        <Image source={{ uri: item.image }} style={{ width: 50, height: 50, marginRight: 10 }} />
-        <Text>{item.title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    fetchSearchResults(query);
+  };
+
+  const renderItem = ({ item }) => {
+    let title = item.DR_Title || item.DR_URL;
+    let image = item.DR_Img_URL || '../assets/stock.png';
+    let link = item.DR_URL || '#';
+
+    return (
+      <TouchableOpacity onPress={() => { Linking.openURL(link) }}>
+        <View style={styles.resource}>
+          <TouchableOpacity onPress={() => { Linking.openURL(link) }}>
+            <Image source={{ uri: image }} style={styles.image} />
+            <Text style={styles.title}>{title}</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={{ flex: 1 }}>
       <Searchbar
         placeholder="Search"
-        onChangeText={onChangeSearch}
+        onChangeText={handleSearch}
         value={searchQuery}
         icon="magnify"
         style={{
@@ -34,13 +46,37 @@ const SearchBar = () => {
           backgroundColor: '#EFEFEF',
         }}
       />
-      <FlatList
-        data={searchResults}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <View style={{ flex: 1 }}>
+        <FlatList
+          data={searchResults}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  resource: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: 20,
+    padding: 10,
+    width: '90%',
+  },
+  image: {
+    width: '100%',
+    aspectRatio: 1,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  title: {
+    marginTop: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
 
 export default SearchBar;

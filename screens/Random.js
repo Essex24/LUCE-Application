@@ -5,21 +5,17 @@ import * as Linking from 'expo-linking';
 import { useFocusEffect } from '@react-navigation/native';
 
 function RandomScreen({ navigation }) {
-  const [url, setUrl] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [data, setData] = useState({});
 
   const login = () => {
     fetch('http://loki.lincolnu.edu/~cs451sp23/random.php')
       .then(response => response.json())
-      .then(data => {
-        setUrl(data.url);
-        setImageUrl(data.image_url);
-      })
+      .then(data => setData(data))
       .catch(error => console.error(error));
   };
 
   const openUrl = () => {
-    Linking.openURL(url);
+    Linking.openURL(data.url);
   };
 
   useFocusEffect(
@@ -31,15 +27,15 @@ function RandomScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {imageUrl ? (
+      {data.image_url ? (
         <TouchableOpacity onPress={openUrl}>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-          <Text>{url}</Text>
+          <Image source={{ uri: data.image_url }} style={styles.image} />
+          <Text style={styles.title}>{data.title || data.url}</Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity onPress={openUrl}>
           <Image source={require('../assets/stock.png')} style={styles.image} />
-          <Text>{url}</Text>
+          <Text style={styles.title}>{data.title || data.url}</Text>
         </TouchableOpacity>
       )}
     </View>
@@ -58,6 +54,11 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 10,
     overflow: 'hidden',
+  },
+  title: {
+    marginTop: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
