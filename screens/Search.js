@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 
 function SearchScreen({ navigation }) {
   return (
+    // just calls searchbar from the component folder
     <ScrollView style={styles.container}>
       <SearchBar />
     </ScrollView>

@@ -7,14 +7,6 @@ function HomeScreen({ navigation }) {
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Digital Resources')}
-        style={styles.button}>
-          <Text style={styles.buttonText}>Resources</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.buttonStyle}>
-        <TouchableOpacity
         onPress={() => navigation.navigate('Aquaculture')}
         style={styles.button}>
           <Text style={styles.buttonText}>Aquaculture</Text>

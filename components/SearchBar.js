@@ -2,27 +2,32 @@ import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { View, Text, FlatList, Image, TouchableOpacity, Linking, StyleSheet } from 'react-native';
 
+// searchbar function
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
+  //calls script to then return resources
   const fetchSearchResults = async (query) => {
     const response = await fetch(`http://loki.lincolnu.edu/~cs451sp23/search_testing/test.php?keyword=${query}`);
     const data = await response.json();
     setSearchResults(data);
   };
 
+  //search query
   const handleSearch = (query) => {
     setSearchQuery(query);
     fetchSearchResults(query);
   };
 
+  // defines the attributes from the DATABASE or defaults if not found
   const renderItem = ({ item }) => {
     let title = item.DR_Title || item.DR_URL;
     let image = item.DR_Img_URL || '../assets/stock.png';
     let link = item.DR_URL || '#';
 
     return (
+      //returns the resource
       <TouchableOpacity onPress={() => { Linking.openURL(link) }}>
         <View style={styles.resource}>
           <TouchableOpacity onPress={() => { Linking.openURL(link) }}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
+// holds the LU logo
 function LogoTitle() {
   return (
     <Image

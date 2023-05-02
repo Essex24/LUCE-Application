@@ -11,6 +11,7 @@ const Register = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
 
+  // clears inputs
   const clearInputs = () => {
     setfName('');
     setlName('');
@@ -22,6 +23,7 @@ const Register = () => {
     setState('');
   };
 
+  // calls script to put information into the DATABASE
   const registerUser = async () => {
     try {
       const response = await fetch('http://loki.lincolnu.edu/~cs451sp23/register.php', {
@@ -44,6 +46,7 @@ const Register = () => {
     }
   };
 
+  // display of text inputs
   return (
     <View style={styles.container}>
       <Text style={styles.label}>First Name:</Text>

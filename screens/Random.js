@@ -7,6 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 function RandomScreen({ navigation }) {
   const [data, setData] = useState({});
 
+  // calls script to randomly get one resource
   const login = () => {
     fetch('http://loki.lincolnu.edu/~cs451sp23/random.php')
       .then(response => response.json())
@@ -14,10 +15,12 @@ function RandomScreen({ navigation }) {
       .catch(error => console.error(error));
   };
 
+  // links resource to PDF from the DATABASE
   const openUrl = () => {
     Linking.openURL(data.url);
   };
 
+  // prevents cycle bug
   useFocusEffect(
     React.useCallback(() => {
       login();
@@ -26,6 +29,7 @@ function RandomScreen({ navigation }) {
   );
 
   return (
+    // returns resource
     <View style={styles.container}>
       {data.image_url ? (
         <TouchableOpacity onPress={openUrl}>

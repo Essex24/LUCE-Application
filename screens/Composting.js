@@ -7,6 +7,7 @@ import { useFocusEffect } from '@react-navigation/native';
 function ResourceScreen({ navigation }) {
   const [data, setData] = useState([]);
 
+  // calls script to display resources of a category
   const fetchData = () => {
     fetch('http://loki.lincolnu.edu/~cs451sp23/returnALL.php')
       .then((response) => response.json())
@@ -14,6 +15,7 @@ function ResourceScreen({ navigation }) {
       .catch((error) => console.error(error));
   };
 
+  // allows script to run when screen is navigated to
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       fetchData();
@@ -22,6 +24,7 @@ function ResourceScreen({ navigation }) {
     return unsubscribe;
   }, [navigation]);
 
+  // displays resource, cycles to show everything in that category
   const displayData = () => {
     return data.map((item, index) => (
       <View key={index} style={styles.resource}>

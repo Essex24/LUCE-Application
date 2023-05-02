@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
+// gathers the different JS files
 import LogoTitle from './components/Logo';
 import HomeScreen from './screens/HomeScreen';
 import SearchScreen from './screens/Search';
@@ -25,9 +26,11 @@ import SRPScreen from './screens/SRP';
 import WLScreen from './screens/WLS';
 import FourHScreen from './screens/4-H';
 
+// creates navigation
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// normation navigation stack
 function StackScreen() {
   return (
     <Stack.Navigator>
@@ -49,7 +52,7 @@ function StackScreen() {
   );
 }
 
-
+// tab navigation with the stack nested inside
 function TabStack() {
   return (
       <Tab.Navigator initialRouteName="Resources" screenOptions={{
@@ -105,7 +108,7 @@ function TabStack() {
           headerTitle: (props) => <LogoTitle {...props} />, 
           tabBarIcon: ({ focused, color, size }) => (
             <Image
-              source={require('./assets/ShowMeHow.png')}
+              source={require('./assets/ShowMeHowBW.png')}
               style={{ height: 25, width: 25 }}
             />
           ),
@@ -142,6 +145,7 @@ function TabStack() {
   );
 }
 
+//displays the tab navigation
 export default function App() {
   return (
     <NavigationContainer>
