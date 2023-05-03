@@ -7,25 +7,9 @@ function HomeScreen({ navigation }) {
 
       <View style={styles.buttonStyle}>
         <TouchableOpacity
-        onPress={() => navigation.navigate('Aquaculture')}
-        style={styles.button}>
-          <Text style={styles.buttonText}>Aquaculture</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.buttonStyle}>
-        <TouchableOpacity
         onPress={() => navigation.navigate('AEA')}
         style={styles.button}>
           <Text style={styles.buttonText}>Association of Extension Administrators</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.buttonStyle}>
-        <TouchableOpacity
-        onPress={() => navigation.navigate('Composting')}
-        style={styles.button}>
-          <Text style={styles.buttonText}>Composting</Text>
         </TouchableOpacity>
       </View>
 
